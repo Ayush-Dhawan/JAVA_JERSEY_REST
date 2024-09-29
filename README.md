@@ -5,7 +5,7 @@ ArtifactId : jersey-quickstart-webapp <br />
 Version : 3.1.3 <br />
 
 
-<h1><u>Refer AlienResource.java in order to create a Get request which returns Alien objext as Json data</u></h1>
+<h3><u>Refer AlienResource.java in order to create a Get request which returns Alien objext as Json data</u></h3>
 <b>In order for Json data to be shown on the browser when hitting the resource url add this to pom.xml</b>
 
 

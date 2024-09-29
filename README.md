@@ -37,6 +37,12 @@ Version : 3.1.3 <br />
         <version>3.0.1</version>
     </dependency>
 
+     <dependency>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-json-jackson</artifactId>
+        <version>3.0.0</version>
+    </dependency>
+
 
 
 **Error message without adding the dependancy:**

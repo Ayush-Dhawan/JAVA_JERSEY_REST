@@ -3,12 +3,14 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Alien {
+    private int id;
     private String name;
     private int points;
 
     public Alien() {}
 
-    public Alien(String name, int points) {
+    public Alien(int id, String name, int points) {
+        this.id = id;
         this.name = name;
         this.points = points;
     }
@@ -27,5 +29,12 @@ public class Alien {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

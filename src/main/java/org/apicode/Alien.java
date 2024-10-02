@@ -1,8 +1,12 @@
 package org.apicode;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
 public class Alien {
+    @Id
     private int id;
     private String name;
     private int points;

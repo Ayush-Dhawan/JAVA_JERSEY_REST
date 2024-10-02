@@ -53,10 +53,11 @@ public class AlienResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteAlien(@PathParam("id") int id){
        Alien x =  repo.getAlienById(id);
-        repo.deleteAlien(id);
-        return Response.status(Response.Status.OK)
-                .entity(x) // Return the deleted alien
-                .build();
+        System.out.println("ye hai x: " + x);
+        if(x != null) repo.deleteAlien(id);
+        return x != null ? Response.status(Response.Status.OK).entity(x).build()
+                        : Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(x).build();
+        //entity returns what you ask it to...here it returns alien x
     }
 
 

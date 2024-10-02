@@ -63,14 +63,17 @@ public class AlienRepository {
 
     public void deleteAlien(int id) {
 //        this.alien.removeIf(alien -> alien.getId() == id);
-        for (Alien alien : alien) {
-            if(alien.getId() == id) {
-                AlienRepository.alien.remove(alien);
-                System.out.println("alien deleted succesfully!");
-                return;
-            }
+        Transaction tx = session.beginTransaction();
+        Query q = session.createQuery("DELETE from Alien where id = :id");
+        q.setParameter("id", id);
+        try{
+            q.executeUpdate();
+        }catch(Exception e){
+            throw new RuntimeException(e.getMessage());
         }
-        System.out.println("No such alien found");
+        finally{
+            tx.commit();
+        }
     }
 
 }

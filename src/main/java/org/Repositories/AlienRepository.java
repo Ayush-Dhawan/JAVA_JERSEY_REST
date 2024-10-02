@@ -35,12 +35,18 @@ public class AlienRepository {
             return aliens;
     }
 
-    public List<Alien> addNewAlien(Alien a) {
+    public List<Alien> addNewAlien(Alien a) throws Exception {
             Transaction tx = session.beginTransaction();
             Query q = session.createQuery("from Alien");
             List<Alien> aliens = q.list();
-            session.save(a);
-            tx.commit();
+            try{
+                session.save(a);
+            }catch(Exception e){
+                throw new Exception(e.getMessage());
+            }
+            finally {
+                tx.commit(); //put in finally as if we try to start another transaction already present one interferes
+            }
             return alien;
     }
 
